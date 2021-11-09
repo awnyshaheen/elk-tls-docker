@@ -1,0 +1,8 @@
+#!/bin/bash
+first=7.14.0;
+#second=$1;
+second=$ELK_VERSION
+echo $second;
+
+[  "$first" = "`echo -e "$first\n$second" | sort -V | head -n1`" ] && sed -i 's/--kibana-url/--url/g' $(python3 -c "import os;import elastic_agent_setup;print(os.path.dirname(elastic_agent_setup.__file__))")/settings.py
+python3 /install.py
