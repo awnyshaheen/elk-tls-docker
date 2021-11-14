@@ -277,6 +277,12 @@ services:
     secrets:
       - source: ca.crt
         target: /ca.crt
+      - source: elasticsearch.crt
+        target: /es-ca.crt
+      - source: kibana.crt
+        target: /kibana.crt
+      - source:  kibana.key
+        target: /kibana.key
     ports:
       - "22:22" 
     networks:
